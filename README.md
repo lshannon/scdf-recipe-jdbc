@@ -82,6 +82,12 @@ This will give us a configurable stream of data.
 
 Now lets use the DB as a source of data.
 
+```shell
+
+stream create --name s1 --definition "jdbc --query='select name,description from products'  --driver-class-name=org.postgresql.Driver --username=txcqdjrm --password=yugppwbVy77PmULgidTqC0lfc0qpwDVK  --url=jdbc:postgresql://pellefant.db.elephantsql.com:5432/txcqdjrm --spring.datasource.maxActive=2 --spring.datasource.tomcat.max-active=2 | log" --deploy
+
+```
+
 
 
 
