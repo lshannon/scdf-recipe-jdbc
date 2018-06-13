@@ -53,6 +53,15 @@ stream create --name s1 --definition "http |  jdbc --driver-class-name=org.postg
 
 ```
 
+This would handle a very simple message, what if we had JSON fields that we wanted to map to columns. In this case the following can be added.
+
+```shell
+
+stream create --name s1 --definition "http |  jdbc --tableName=products --columns=name,description --driver-class-name=org.postgresql.Driver --username=txcqdjrm --password=yugppwbVy77PmULgidTqC0lfc0qpwDVK  --url=jdbc:postgresql://pellefant.db.elephantsql.com:5432/txcqdjrm --jdbc.initialize=true --spring.datasource.maxActive=2 --spring.datasource.tomcat.max-active=2" --deploy
+
+
+```
+
 ### Testing the Stream
 
 We can do a simple test using curl.
