@@ -10,7 +10,7 @@ http://lukeshannon.com/blog/2018/scdf-setup.html
 
 The following is a recipes for an data oriented outcome we can achieve once SCDF is set up. As usual the work will be done on Pivotal Web Services (PWS) (https://run.pivotal.io/).
 
-## JDBC Ingestion Recipe
+## JDBC Writer Recipe
 
 ### Outcome
 
@@ -43,7 +43,21 @@ cf service message-db
 
 ```
 
-
 ### Creating the Stream
 
-### Running the Stream
+```shell
+stream create --name s1 --definition "http |  jdbc --driver-class-name=org.postgresql.Driver --username=txcqdjrm --password=yugppwbVy77PmULgidTqC0lfc0qpwDVK  --url=jdbc:postgresql://pellefant.db.elephantsql.com:5432/txcqdjrm --jdbc.initialize=true --spring.datasource.maxActive=2 --spring.datasource.tomcat.max-active=2" --deploy
+
+```
+
+### Testing the Stream
+
+```shell
+
+curl 'https://cndescdf-dataflow-server-rhlqe0u-s1-http.cfapps.io/' -i -X POST -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept: application/json' -d '{"greeting" : "hello world" }'
+
+```
+
+### Filtering The Data
+
+
