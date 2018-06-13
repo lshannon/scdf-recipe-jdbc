@@ -10,7 +10,10 @@ http://lukeshannon.com/blog/2018/scdf-setup.html
 
 The following is a recipes for an data oriented outcome we can achieve once SCDF is set up. As usual the work will be done on Pivotal Web Services (PWS) (https://run.pivotal.io/).
 
-## JDBC Writer Recipe
+
+## Writing To A DB
+
+Lets begin by using the DB as a Sink (meaning the endpoint of a Stream).
 
 ### Outcome
 
@@ -52,12 +55,28 @@ stream create --name s1 --definition "http |  jdbc --driver-class-name=org.postg
 
 ### Testing the Stream
 
+We can do a simple test using curl.
+
 ```shell
 
 curl 'https://cndescdf-dataflow-server-rhlqe0u-s1-http.cfapps.io/' -i -X POST -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept: application/json' -d '{"greeting" : "hello world" }'
 
 ```
 
+For a more robust test, we can use a custom application that can be configured to run as a task in PCF:
+
+https://github.com/lshannon/scdf-http-message-producer
+
+This will give us a configurable stream of data.
+
 ### Filtering The Data
+
+Giving that a stream of data is in place, its possible only certain records should be writing the DB.
+
+## Reading From A DB
+
+Now lets use the DB as a source of data.
+
+
 
 
