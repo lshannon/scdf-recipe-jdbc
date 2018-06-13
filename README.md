@@ -68,7 +68,7 @@ We can do a simple test using curl.
 
 ```shell
 
-curl 'https://cndescdf-dataflow-server-rhlqe0u-s1-http.cfapps.io/' -i -X POST -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept: application/json' -d '{"greeting" : "hello world" }'
+curl 'https://cndescdf-dataflow-server-rhlqe0u-s1-http.cfapps.io/' -i -X POST -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept: application/json' -d '{"name" : "biff", "description" : "grand master of ninjitsui" }'
 
 ```
 
