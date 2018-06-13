@@ -69,10 +69,6 @@ https://github.com/lshannon/scdf-http-message-producer
 
 This will give us a configurable stream of data.
 
-### Filtering The Data
-
-Giving that a stream of data is in place, its possible only certain records should be writing the DB.
-
 ## Reading From A DB
 
 Now lets use the DB as a source of data.
